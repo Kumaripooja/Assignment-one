@@ -1,0 +1,38 @@
+//onLongClick event
+
+longclick.xml
+-----------------------------------------------------
+<Button
+    android:id="@id/testButton"
+    android:layout_width="70dp"
+    android:layout_height="55dp"
+    android:layout_margin="2dp"
+    android:background="@drawable/keypad_round_button"
+    android:text="1"
+    android:textColor="@color/black_1" 
+    android:onClick="keypadSetNote"
+    android:longClickable="true"/>
+<Button
+    android:id="@id/testButton"
+    android:layout_width="70dp"
+    android:layout_height="55dp"
+    android:layout_margin="2dp"
+    android:background="@drawable/keypad_round_button"
+    android:text="2"
+    android:longClickable="true"
+    android:textColor="@color/black_1"
+    android:onClick="keypadSetNote"
+     />
+-------------------------------------------------------------------
+
+longclick.java
+-----------------------------------------------------------------
+Button button = (Button) findViewById(R.id.testButton);
+    button.setOnLongClickListener(new View.OnLongClickListener() {
+        public boolean onLongClick(View v) {
+            Button clickedButton = (Button) v;
+            String buttonText = clickedButton.getText().toString();
+            Log.v(TAG, "button long pressed --> " + buttonText);
+            return true;
+        }
+    });

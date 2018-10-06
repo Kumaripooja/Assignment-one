@@ -1,0 +1,41 @@
+// onSelect event using radio button
+
+select.xml
+-------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RadioButton android:id="@+id/radio_pirates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pirates"
+        android:onClick="onRadioButtonClicked"/>
+    <RadioButton android:id="@+id/radio_ninjas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ninjas"
+        android:onClick="onRadioButtonClicked"/>
+</RadioGroup>
+--------------------------------
+
+select.java
+-------------------------
+public void onRadioButtonClicked(View view) {
+    // Is the button now checked?
+    boolean checked = ((RadioButton) view).isChecked();
+
+    // Check which radio button was clicked
+    switch(view.getId()) {
+        case R.id.radio_pirates:
+            if (checked)
+                // Pirates are the best
+            break;
+        case R.id.radio_ninjas:
+            if (checked)
+                // Ninjas rule
+            break;
+    }
+}
+ 

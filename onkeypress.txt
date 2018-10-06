@@ -1,0 +1,66 @@
+// onKeypress event in edit text
+
+keypress.xml
+-------------------------------------------
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:paddingBottom="activity_vertical_margin"
+   android:paddingLeft="activity_horizontal_margin"
+   android:paddingRight="activity_horizontal_margin"
+   android:paddingTop="activity_vertical_margin"
+   tools:context=".MainActivity" >
+   
+   <TextView
+      android:id="@+id/textView1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginLeft="14dp"
+      android:layout_marginTop="18dp"
+      android:text="@string/example_edittext" />
+      
+   <Button
+      android:id="@+id/button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignLeft="@+id/textView1"
+      android:layout_below="@+id/textView1"
+      android:layout_marginTop="130dp"
+      android:text="@string/show_the_text" />
+      
+   <EditText
+      android:id="@+id/edittext"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignLeft="@+id/button"
+      android:layout_below="@+id/textView1"
+      android:layout_marginTop="61dp"
+      android:ems="10"
+      android:text="@string/enter_text" android:inputType="text" />
+
+</RelativeLayout>
+
+--------------------------
+
+keypress.java
+----------------------------------
+EditText eText;
+   Button btn;
+   
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      eText = (EditText) findViewById(R.id.edittext);
+      btn = (Button) findViewById(R.id.button);
+      btn.setOnClickListener(new OnClickListener() {
+         public void onClick(View v) {
+            String str = eText.getText().toString();
+            Toast msg = Toast.makeText(getBaseContext(),str,Toast.LENGTH_LONG);
+            msg.show();
+         }
+      }
+   }
